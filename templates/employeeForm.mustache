@@ -1,0 +1,46 @@
+<form method="post">
+
+<div class="my-2">
+  <label for="name">Employeee name</label>
+  <input id="name" name="name" class="form-control" type="text" value="{{employee.name}}"/><!--mělo by být required-->
+  {{#errors.name}}<div class="form-text text-warning">{{errors.name}}</div>{{/errors.name}}
+</div>
+    <div class="my-2">
+        <label for="surname">Employeee surname</label>
+        <input id="surname" name="surname" class="form-control" type="text" value="{{employee.surname}}"/><!--mělo by být required-->
+        {{#errors.surname}}<div class="form-text text-warning">{{errors.surname}}</div>{{/errors.surname}}
+    </div>
+<div class="my-2">
+  <label for="room">Room</label>
+    <select class="form-select" name="room" id="room">
+    {{#rooms}}
+        <option value={{room_id}}>{{name}}</option>
+    {{/rooms}}
+    </select>
+  {{#errors.room}}<div class="form-text text-warning">{{errors.room}}</div>{{/errors.room}}
+</div>
+<div class="my-2">
+  <label for="wage">Wage</label>
+  <input id="wage" name="wage" class="form-control" type="number" value="{{employee.wage}}"/>
+</div>
+    <div class="my-2">
+        <label for="job">Job</label>
+        <input id="job" name="job" class="form-control" type="text" value="{{employee.job}}"/>
+        {{#errors.job}}<div class="form-text text-warning">{{errors.job}}</div>{{/errors.job}}
+    </div>
+    <div class="my-2">
+        <label for="keys">Keys</label>
+        <select class="form-select" name="keys[]" id="keys" multiple="multiple">
+            {{#roomsKeys}}
+                <option {{selected}}value="{{room_id}}"> {{name}}</option>
+            {{/roomsKeys}}
+        </select>
+    </div>
+<div class="my-2">
+  {{#create}}<input type="hidden" name="action" value="create" />
+  <input type="submit" value="Create" class="btn btn-primary" />{{/create}}
+  {{#update}}<input type="hidden" name="action" value="update" />
+  <input type="hidden" name="employee_id" value="{{employee.employee_id}}">
+  <input type="submit" value="Update" class="btn btn-primary" />{{/update}}
+</div>
+</form>

@@ -1,0 +1,9 @@
+<dl class='dl-horizontal'>
+<h1>Employee detail: {{employee.surname}} {{employee.name}}</h1>
+<dt>Name:</dt><dd>{{employee.name}} {{employee.surname}}</dd>
+<dt>Job:</dt><dd>{{employee.job}}</dd>
+<dt>Wage:</dt><dd>{{employee.wage}} Kč</dd>
+    <dt>Room:</dt><dd><a href="../room/roomDetail.php?room_id={{employee.room}}">{{employee.roomname}}</a> </dd>
+    <dt>Keys:</dt>{{#keys}}<dd><a href="../room/roomDetail.php?room_id={{room_id}}">{{name}}</dd></dd>{{/keys}}
+    <a href='./'> <i class='bi bi-arrow-left'></i> Employee list</a>
+</dl>

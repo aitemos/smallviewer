@@ -1,0 +1,27 @@
+<a href="../menu.php"><i class="bi bi-house"></i></a>  <a  href="create"><i class="bi bi-plus-circle"></i></a>
+<a href="../profile.php"><i class="bi bi-person-circle"></i></a>  <a href="../logout.php"><i class="bi bi-box-arrow-left"></i></a>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name<a href='?order=name_up'><i class='bi bi-arrow-up'></i></a><a href='?order=name_up'><i class='bi bi-arrow-down'></i></a></th>
+        <th>Room</th>
+        <th>Phone</th>
+        <th>Job</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{# employees }}
+        <tr>
+            <td><a href="{{ employeeDetailName }}?employee_id={{ employee_id }}">{{ surname }} {{empname}}</a></td>
+            <td>{{ roomname }}</td>
+            <td>{{ phone }}</td>
+            <td>{{ job }}</td>
+            <td><form action="delete.php" method="post" onsubmit="return confirm('Really delete?\n\n this action cannot be undone!');" style="display: inline-block;">
+                <input type="hidden" name="employee_id" value="{{ employee_id }}" />
+                <input type="submit" value="Delete" {{admin}} class="btn btn-danger">
+            </form>
+                <button {{admin}} class="btn btn-info"><a  href="update.php?employee_id={{ employee_id }}">Edit</a></button></td>
+        </tr>
+    {{/employees}}
+    </tbody>
+</table>
